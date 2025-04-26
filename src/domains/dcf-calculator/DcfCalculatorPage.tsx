@@ -109,31 +109,42 @@ const DcfCalculatorPage: React.FC = () => {
           {/* Span across two columns on large screens */}
           <CompanySearch onSearch={handleSearch} loading={loading} />
           {companyFinancials && (
-            <Card className="w-full mt-4">
-              <CardHeader>
-                <CardTitle>
-                  {companyFinancials.companyName} ({companyFinancials.ticker})
-                </CardTitle>
-                <p className="text-xl font-bold text-gray-800">
-                  {formatCurrency(companyFinancials.currentPrice)}
-                </p>
-              </CardHeader>
-              <CardContent className="grid grid-cols-2 gap-4">
-                <div>
-                  <p className="text-sm text-gray-600">EPS (TTM):</p>
-                  <p className="text-lg font-semibold">
-                    {companyFinancials.epsTTM.toFixed(2)}
+              <Card className="w-full mt-4">
+                <CardHeader>
+                  <CardTitle>
+                    {companyFinancials.companyName} ({companyFinancials.ticker})
+                  </CardTitle>
+                  <p className="text-xl font-bold text-gray-800">
+                    {formatCurrency(companyFinancials.currentPrice)}
                   </p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">PE (TTM):</p>
-                  <p className="text-lg font-semibold">
-                    {companyFinancials.peRatioTTM.toFixed(2)}
-                  </p>
-                </div>
-                {/* Add other financial data here */}
-              </CardContent>
-            </Card>
+                </CardHeader>
+                <CardContent className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-sm text-gray-600">EPS (TTM):</p>
+                    <p className="text-lg font-semibold">
+                      {companyFinancials.epsTTM.toFixed(2)}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">PE (TTM):</p>
+                    <p className="text-lg font-semibold">
+                      {companyFinancials.peRatioTTM.toFixed(2)}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">PROVIDER DCF:</p>
+                    <p className="text-lg font-semibold">
+                      {companyFinancials.currentDcfValue?.toFixed(2)}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">CURRENT DCF DIFF:</p>
+                    <p className="text-lg font-semibold">
+                      {companyFinancials.currectPriceDifferenceToDcfValue?.toFixed(2)}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
           )}
           {error && (
             <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-md">
