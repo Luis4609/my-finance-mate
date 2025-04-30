@@ -51,6 +51,7 @@ const AccountTable: React.FC<AccountTableProps> = ({
               <TableRow>
                 <TableHead>Account Name</TableHead>
                 <TableHead>Balance</TableHead>
+                <TableHead>Account Type</TableHead>
                 <TableHead>Last Updated</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
               </TableRow>
@@ -60,6 +61,7 @@ const AccountTable: React.FC<AccountTableProps> = ({
                 <TableRow key={account.id}>
                   <TableCell className="font-medium">{account.name}</TableCell>
                   <TableCell>{formatCurrency(account.balance)}</TableCell>
+                  <TableCell>{account.type}</TableCell>
                   <TableCell>{account.lastUpdated}</TableCell>
                   <TableCell className="text-right">
                     <Button

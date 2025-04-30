@@ -1,7 +1,9 @@
 export interface Account {
-    id: string;
-    name: string;
-    balance: number;
-    lastUpdated: string;
-    color: string; // Added color here as it's needed for the dashboard chart
-  }
+  id: string;
+  name: string;
+  balance: number;
+  lastUpdated: string;
+  color: string; // Added color here as it's needed for the dashboard chart
+  type: string;
+  isActive: boolean;
+}
