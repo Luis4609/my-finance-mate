@@ -1,54 +1,85 @@
-# React + TypeScript + Vite
+# My Finance Mate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Banner o Logo del proyecto (Opcional)]
+Una aplicación para **organizar y visualizar todas tus finanzas en un solo lugar**. Simplifica el seguimiento de tus cuentas e inversiones y proporciona herramientas útiles para tomar decisiones informadas.
 
-Currently, two official plugins are available:
+## Características Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Vista Centralizada de Cuentas:** Organiza y consulta todas tus cuentas financieras (bancarias, tarjetas, etc.) en un único panel.
+* **Detalle de Inversiones:** Explora tus inversiones con información detallada sobre cada activo que posees.
+* **Calculadora DCF (Discounted Cash Flow):** Una herramienta para valorar acciones basándose en el análisis de flujos de caja descontados.
+* **[Añadir otras características]:** Si tu proyecto tiene más funcionalidades (ej: registro de gastos, presupuestos, gráficos), añádelas aquí.
 
-## Expanding the ESLint configuration
+## Instalación
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Sigue estos pasos para tener el proyecto funcionando en tu máquina local:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Prerrequisitos
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Asegúrate de tener instalado lo siguiente:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* [Node.js](https://nodejs.org/) (se recomienda la versión LTS)
+* [npm](https://www.npmjs.com/) (viene con Node.js) o [Yarn](https://yarnpkg.com/)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Pasos de Instalación
+
+1.  **Clona el repositorio:**
+
+    ```bash
+    git clone [https://github.com/Luis4609/my-finance-mate.git](https://github.com/Luis4609/my-finance-mate.git)
+    ```
+
+2.  **Navega al directorio del proyecto:**
+
+    ```bash
+    cd my-finance-mate
+    ```
+
+3.  **Instala las dependencias:**
+
+    ```bash
+    npm install
+    # o si usas Yarn
+    # yarn install
+    ```
+
+4.  **[Configuración Adicional (Opcional)]:** Si tu proyecto requiere alguna configuración extra (ej: variables de entorno, configuración de base de datos, API keys), describe los pasos aquí. Por ejemplo:
+
+    ```bash
+    # Crea un archivo .env en la raíz del proyecto
+    cp .env.example .env
+    ```
+    Luego, explica qué variables hay que configurar en el archivo `.env`.
+
+### Ejecutar la aplicación
+
+1.  **Inicia el servidor de desarrollo:**
+
+    ```bash
+    npm start
+    # o si usas Yarn
+    # yarn start
+    ```
+
+2.  Abre tu navegador y visita `http://localhost:3000` (o el puerto que se indique).
+
+## Uso
+
+[Describe brevemente cómo empezar a usar la aplicación una vez que está corriendo. Por ejemplo: "Una vez que la aplicación se carga, puedes empezar añadiendo tus cuentas desde la sección 'Cuentas'...", etc.]
+
+## Tecnologías Utilizadas
+
+* [React](https://reactjs.org/)
+* [Menciona otras librerías o frameworks principales que uses (ej: Redux, Context API, Chart.js, una librería de UI como Material UI, etc.)]
+
+## [Contribución (Opcional)]
+
+[Si estás abierto a contribuciones, explica cómo la gente puede contribuir a tu proyecto. Por ejemplo, cómo reportar bugs, sugerir nuevas características, o enviar pull requests.]
+
+## [Licencia (Opcional)]
+
+[Indica la licencia bajo la cual se distribuye tu proyecto, por ejemplo, Licencia MIT. Puedes añadir una línea como: "Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) para detalles."]
+
+---
+
+Espero que esta plantilla te sea de gran ayuda para crear un README completo y atractivo para tu repositorio. ¡No dudes en añadir o modificar secciones según las necesidades específicas de tu proyecto!
