@@ -94,57 +94,61 @@ const DcfCalculatorPage: React.FC = () => {
       epsGrowthRate,
       appropriateEpsMultiple,
       desiredReturn,
-    ]); // Recalculate when these dependencies change
+    ]);
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-        DCF Calculator
-      </h1>
+      <h1 className="text-3xl font-bold mb-8 text-center">DCF Calculator</h1>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        {/* Company Search and Financials */}
         <div className="lg:col-span-2">
-          {" "}
-          {/* Span across two columns on large screens */}
           <CompanySearch onSearch={handleSearch} loading={loading} />
           {companyFinancials && (
-              <Card className="w-full mt-4">
-                <CardHeader>
-                  <CardTitle>
-                    {companyFinancials.companyName} ({companyFinancials.ticker})
-                  </CardTitle>
-                  <p className="text-xl font-bold text-gray-800">
-                    {formatCurrency(companyFinancials.currentPrice)}
+            <Card className="w-full mt-4">
+              <CardHeader>
+                <CardTitle>
+                  {companyFinancials.companyName} ({companyFinancials.ticker})
+                </CardTitle>
+                <p className="text-xl font-bold">
+                  {formatCurrency(companyFinancials.currentPrice)}
+                </p>
+              </CardHeader>
+              <CardContent className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-sm ">EPS (TTM):</p>
+                  <p className="text-lg font-semibold">
+                    {companyFinancials.epsTTM.toFixed(2)}
                   </p>
-                </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm text-gray-600">EPS (TTM):</p>
-                    <p className="text-lg font-semibold">
-                      {companyFinancials.epsTTM.toFixed(2)}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">PE (TTM):</p>
-                    <p className="text-lg font-semibold">
-                      {companyFinancials.peRatioTTM.toFixed(2)}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">PROVIDER DCF:</p>
-                    <p className="text-lg font-semibold">
-                      {companyFinancials.currentDcfValue?.toFixed(2)}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">CURRENT DCF DIFF:</p>
-                    <p className="text-lg font-semibold">
-                      {companyFinancials.currectPriceDifferenceToDcfValue?.toFixed(2)}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+                </div>
+                <div>
+                  <p className="text-sm ">PE (TTM):</p>
+                  <p className="text-lg font-semibold">
+                    {companyFinancials.peRatioTTM.toFixed(2)}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm ">PROVIDER DCF RESULT:</p>
+                  <p className="text-lg font-semibold">
+                    {formatCurrency(companyFinancials.currentDcfValue ?? 0)}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm ">CURRENT DCF DIFF:</p>
+                  <p
+                    className={`text-lg font-semibold ${
+                      (companyFinancials.currentDcfValue ?? 0) >
+                      companyFinancials.currentPrice
+                        ? "text-green-600"
+                        : "text-red-600"
+                    }`}
+                  >
+                    {formatCurrency(
+                      companyFinancials.currectPriceDifferenceToDcfValue ?? 0
+                    )}
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           )}
           {error && (
             <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-md">
