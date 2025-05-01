@@ -61,7 +61,7 @@ const AccountTable: React.FC<AccountTableProps> = ({
                 <TableRow key={account.id}>
                   <TableCell className="font-medium">{account.name}</TableCell>
                   <TableCell>{formatCurrency(account.balance)}</TableCell>
-                  <TableCell>{account.type}</TableCell>
+                  <TableCell>{String(account.type)}</TableCell>
                   <TableCell>{account.lastUpdated}</TableCell>
                   <TableCell className="text-right">
                     <Button
