@@ -1,10 +1,10 @@
 import { DataTable } from "@/components/data-table";
-import { Account } from "@/shared/models/Account"; // Import from shared models
+import { Account } from "@/shared/models/Account";
 import React from "react";
 import AccountDistributionChart from "./components/AccountDistributionChart";
 import TotalBalanceCard from "./components/TotalBalanceCard";
 
-import data from "@/app/dashboard/data.json"; // Adjust the path as necessary
+import data from "@/app/dashboard/data.json";
 
 interface DashboardPageProps {
   accounts: Account[];
@@ -12,13 +12,22 @@ interface DashboardPageProps {
 
 const DashboardPage: React.FC<DashboardPageProps> = ({ accounts }) => {
   return (
-    <div className="flex flex-col">
+    <>
       <div className="flex flex-row justify-center items-center gap-4 mb-4">
         <TotalBalanceCard accounts={accounts} />
         <AccountDistributionChart accounts={accounts} />
       </div>
-      <DataTable data={data} />
-    </div>
+      <DataTable
+        data={data
+          .filter((item) => item.ticker !== undefined)
+          .map((item) => ({
+            ...item,
+            status: (["Buy", "Hold", "Sell"].includes(item.status)
+              ? item.status
+              : "Hold") as "Buy" | "Hold" | "Sell",
+          }))}
+      />
+    </>
   );
 };
 

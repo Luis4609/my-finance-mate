@@ -1,21 +1,21 @@
 [
     {
         "id": "acc-12345",
-        "name": "Main Checking",
-        "balance": 5250.75,
-        "lastUpdated": "2023-10-27, 10:30:00 AM",
+        "name": "La Caixa",
+        "balance": 3307.50,
+        "lastUpdated": "2025-04-27, 10:30:00 AM",
         "color": "hsl(142.1 76.2% 36.3%)",
         "type": {
             "id": "cash",
             "name": "CASH",
-            "description": "Physical cash or highly liquid funds."
+            "description": "Bank accounts, cash, etc."
         }
     },
     {
         "id": "acc-67890",
-        "name": "Growth Investments",
-        "balance": 18540.20,
-        "lastUpdated": "2023-10-27, 10:35:00 AM",
+        "name": "Trade Republic",
+        "balance": 7162.20,
+        "lastUpdated": "2025-05-01, 10:35:00 AM",
         "color": "hsl(210 98% 48%)",
         "type": {
             "id": "investment",
@@ -25,32 +25,32 @@
     },
     {
         "id": "acc-abcde",
-        "name": "Bitcoin Wallet",
-        "balance": 3500.00,
+        "name": "Bit2Me",
+        "balance": 1350.00,
         "lastUpdated": "2023-10-27, 10:40:00 AM",
         "color": "hsl(38.2 95.7% 50.3%)",
         "type": {
             "id": "crypto",
             "name": "CRYPTO",
-            "description": "Cryptocurrencies like Bitcoin, Ethereum, etc."
+            "description": "Cryptocurrencies like Bitcoin, Hedera, Cardano, etc."
         }
     },
     {
         "id": "acc-fghij",
-        "name": "Vacation Savings",
-        "balance": 1500.00,
-        "lastUpdated": "2023-10-27, 10:45:00 AM",
+        "name": "Trading 212",
+        "balance": 1915.00,
+        "lastUpdated": "2025-05-01, 10:45:00 AM",
         "color": "hsl(280 60% 50%)",
         "type": {
             "id": "travel",
             "name": "TRAVEL",
-            "description": "Funds allocated for travel."
+            "description": "Stock, with more focus on Growth Stocks."
         }
     },
     {
         "id": "acc-klmno",
-        "name": "Credit Card (Mastercard)",
-        "balance": -550.75,
+        "name": "Deudas",
+        "balance": 910,
         "lastUpdated": "2023-10-27, 10:50:00 AM",
         "color": "hsl(0 80% 60%)",
         "type": {
