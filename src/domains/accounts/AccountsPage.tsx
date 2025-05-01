@@ -5,7 +5,7 @@ import AccountTable from './components/AccountTable';
 
 interface AccountsPageProps {
   accounts: Account[];
-  onAddAccount: (account: Omit<Account, 'id' | 'lastUpdated' | 'color'>) => void;
+  onAddAccount: (account: Omit<Account, 'id' | 'lastUpdated' | 'color' | 'isActive'>) => void;
   onUpdateBalance: (id: string, newBalance: number) => void;
   onDeleteAccount: (id: string) => void;
 }
