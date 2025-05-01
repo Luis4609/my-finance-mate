@@ -8,29 +8,57 @@ import { v4 as uuidv4 } from "uuid";
 export const useAccounts = () => {
   const [accounts, setAccounts] = useState<Account[]>([]);
 
-  // Load accounts from local storage on initial load
+  // Inside useAccounts hook, replace the first useEffect
   useEffect(() => {
-    const storedAccounts = localStorage.getItem("financialAccounts");
-    if (storedAccounts) {
+    const fetchMockAccounts = async () => {
       try {
-        const parsedAccounts = JSON.parse(storedAccounts) as Account[];
-        // Ensure loaded accounts have a valid type (handle potential old data without type)
-        const accountsWithTypes = parsedAccounts.map((account) => ({
+        const response = await fetch("/accounts.json"); // Adjust path if needed
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        // You might still want to add the type fallback here
+        const accountsWithTypes = data.map((account: Partial<Account>) => ({
           ...account,
           type:
-            typeof account.type === "string"
-              ? account.type
-              : AVAILABLE_ACCOUNT_TYPES.find((t) => t.name === "OTHER")?.name ||
-                AVAILABLE_ACCOUNT_TYPES[0].name, // Ensure type is always a string
+            account.type ||
+            AVAILABLE_ACCOUNT_TYPES.find((t) => t.name === "OTHER") ||
+            AVAILABLE_ACCOUNT_TYPES[0],
         }));
         setAccounts(accountsWithTypes);
       } catch (error) {
-        console.error("Failed to parse accounts from localStorage:", error);
-        // Optionally clear invalid data
-        // localStorage.removeItem('financialAccounts');
+        console.error("Failed to fetch mock accounts:", error);
+        // Fallback to an empty array or show an error message
+        setAccounts([]);
       }
-    }
+    };
+
+    fetchMockAccounts();
   }, []);
+
+  // // Load accounts from local storage on initial load
+  // useEffect(() => {
+  //   const storedAccounts = localStorage.getItem("financialAccounts");
+  //   if (storedAccounts) {
+  //     try {
+  //       const parsedAccounts = JSON.parse(storedAccounts) as Account[];
+  //       // Ensure loaded accounts have a valid type (handle potential old data without type)
+  //       const accountsWithTypes = parsedAccounts.map((account) => ({
+  //         ...account,
+  //         type:
+  //           typeof account.type === "string"
+  //             ? account.type
+  //             : AVAILABLE_ACCOUNT_TYPES.find((t) => t.name === "OTHER")?.name ||
+  //               AVAILABLE_ACCOUNT_TYPES[0].name, // Ensure type is always a string
+  //       }));
+  //       setAccounts(accountsWithTypes);
+  //     } catch (error) {
+  //       console.error("Failed to parse accounts from localStorage:", error);
+  //       // Optionally clear invalid data
+  //       // localStorage.removeItem('financialAccounts');
+  //     }
+  //   }
+  // }, []);
 
   // Save accounts to local storage whenever the accounts state changes
   useEffect(() => {
