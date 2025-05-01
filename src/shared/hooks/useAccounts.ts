@@ -13,7 +13,7 @@ export const useAccounts = () => {
   useEffect(() => {
     const fetchMockAccounts = async () => {
       try {
-        const response = await fetch("/accounts.json"); // Adjust path if needed
+        const response = await fetch("/src/app/accounts/accounts.json"); // Adjust path if needed
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -29,7 +29,6 @@ export const useAccounts = () => {
         setAccounts(accountsWithTypes);
       } catch (error) {
         console.error("Failed to fetch mock accounts:", error);
-        // Fallback to an empty array or show an error message
         setAccounts([]);
       }
     };
@@ -124,7 +123,7 @@ export const useAccounts = () => {
   return {
     accounts,
     addAccount,
-    updateAccount, // Renamed and modified to update any field
+    updateAccount,
     deleteAccount,
   };
 };
