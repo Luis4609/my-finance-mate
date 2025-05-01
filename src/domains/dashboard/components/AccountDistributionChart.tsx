@@ -33,7 +33,7 @@ const AccountDistributionChart: React.FC<AccountDistributionChartProps> = ({
   }, [accounts]);
 
   return (
-    <Card className="w-full max-w-md mx-auto flex flex-col">
+    <Card className="flex flex-col max-w-sm w-full">
       <CardHeader className="items-center">
         <CardTitle>Account Distribution</CardTitle>
       </CardHeader>
