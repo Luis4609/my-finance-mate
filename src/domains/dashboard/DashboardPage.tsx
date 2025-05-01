@@ -5,6 +5,7 @@ import AccountDistributionChart from "./components/AccountDistributionChart";
 import TotalBalanceCard from "./components/TotalBalanceCard";
 
 import data from "@/app/dashboard/data.json";
+import { SectionCards } from "@/components/section-cards";
 
 interface DashboardPageProps {
   accounts: Account[];
@@ -17,6 +18,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ accounts }) => {
         <TotalBalanceCard accounts={accounts} />
         <AccountDistributionChart accounts={accounts} />
       </div>
+      <SectionCards></SectionCards>
       <DataTable
         data={data
           .filter((item) => item.ticker !== undefined)
