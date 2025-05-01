@@ -3,6 +3,7 @@ import { Account } from "@/shared/models/Account";
 import { generateRandomHSLColor } from "@/shared/utils/colorUtils"; // Import the color utility
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { AccountType } from "../models/AccountType";
 
 // Custom hook for managing accounts state and logic
 export const useAccounts = () => {
@@ -88,7 +89,7 @@ export const useAccounts = () => {
       id: uuidv4(),
       lastUpdated: new Date().toLocaleString(),
       color: generateRandomHSLColor(),
-      type: selectedType, // Assign the selected type object
+      type: selectedType.name as unknown as AccountType, // Assign the name of the selected type
     };
     setAccounts([...accounts, accountToAdd]);
   };
