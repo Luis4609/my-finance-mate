@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Account } from "@/shared/models/Account"; // Import from shared models
 import React from "react";
 import AccountDistributionChart from "./components/AccountDistributionChart";
@@ -14,18 +13,9 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ accounts }) => {
         Financial Dashboard
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="flex flex-row items-center space-y-6">
         <TotalBalanceCard accounts={accounts} />
         <AccountDistributionChart accounts={accounts} />
-        <Card className="w-full max-w-sm mx-auto">
-          <CardHeader>
-            <CardTitle>Account distribution by type</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {/* TODO: crear  y definir el componente 
-            reutilizar el AccountDistribution */}
-          </CardContent>
-        </Card>
       </div>
     </div>
   );

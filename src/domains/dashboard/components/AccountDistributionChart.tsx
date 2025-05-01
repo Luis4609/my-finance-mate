@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"; 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import * as React from "react";
 import {
   Cell,
@@ -24,7 +24,7 @@ const AccountDistributionChart: React.FC<AccountDistributionChartProps> = ({
     .filter((account) => account.balance !== 0)
     .map((account) => ({
       name: account.name,
-      value: Math.abs(account.balance), // Use absolute value for pie chart
+      value: Math.abs(account.balance),
       color: account.color,
     }));
 
@@ -34,10 +34,10 @@ const AccountDistributionChart: React.FC<AccountDistributionChartProps> = ({
 
   return (
     <Card className="w-full max-w-md mx-auto flex flex-col">
-      <CardHeader className="items-center pb-0">
+      <CardHeader className="items-center">
         <CardTitle>Account Distribution</CardTitle>
       </CardHeader>
-      <CardContent className="flex-1 pb-0">
+      <CardContent className="flex-1">
         {chartData.length > 0 ? (
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
@@ -47,7 +47,8 @@ const AccountDistributionChart: React.FC<AccountDistributionChartProps> = ({
                 dataKey="value"
                 nameKey="name"
                 innerRadius={60}
-                strokeWidth={5}
+                outerRadius={90}
+                paddingAngle={5}
               >
                 {chartData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
@@ -82,7 +83,7 @@ const AccountDistributionChart: React.FC<AccountDistributionChartProps> = ({
                   }
                 }}
               />
-              <Legend verticalAlign="bottom" align="center" height={36} />
+              <Legend />
             </PieChart>
           </ResponsiveContainer>
         ) : (
