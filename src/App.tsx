@@ -9,31 +9,29 @@ function App() {
   const { accounts, addAccount, updateAccount, deleteAccount } = useAccounts();
 
   return (
-    <Layout>
-      <Router>
-        <div className="App">
-          <Routes>
-            <Route
-              path="/dashboard"
-              element={<DashboardPage accounts={accounts} />}
-            />
-            <Route
-              path="/accounts"
-              element={
-                <AccountsPage
-                  accounts={accounts}
-                  onAddAccount={addAccount}
-                  onUpdateBalance={updateAccount}
-                  onDeleteAccount={deleteAccount}
-                />
-              }
-            />
-            <Route path="/dcf-calculator" element={<DcfCalculatorPage />} />
-            <Route path="/" element={<DashboardPage accounts={accounts} />} />
-          </Routes>
-        </div>
-      </Router>
-    </Layout>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route
+            path="/dashboard"
+            element={<DashboardPage accounts={accounts} />}
+          />
+          <Route
+            path="/accounts"
+            element={
+              <AccountsPage
+                accounts={accounts}
+                onAddAccount={addAccount}
+                onUpdateBalance={updateAccount}
+                onDeleteAccount={deleteAccount}
+              />
+            }
+          />
+          <Route path="/dcf-calculator" element={<DcfCalculatorPage />} />
+          <Route path="/" element={<DashboardPage accounts={accounts} />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
