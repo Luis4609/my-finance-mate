@@ -13,7 +13,7 @@ interface AccountsPageProps {
 const AccountsPage: React.FC<AccountsPageProps> = ({ accounts, onAddAccount, onUpdateBalance, onDeleteAccount }) => {
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">Manage Accounts</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center">Manage Accounts</h1>
 
       <div className="flex flex-col items-center justify-center space-y-6">
         <AddAccountForm onAddAccount={onAddAccount} />

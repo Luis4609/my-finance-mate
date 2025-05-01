@@ -18,7 +18,7 @@ const CalculationResults: React.FC<CalculationResultsProps> = ({
       <CardContent className="grid grid-cols-1 gap-4">
         <div>
           <p className="text-sm text-gray-600">Return from today's price (Annualized):</p>
-          <p className="text-xl font-bold text-blue-600">
+          <p className="text-xl font-bold">
             {returnFromTodaysPrice !== null ? `${returnFromTodaysPrice.toFixed(2)} %` : '-'}
           </p>
         </div>
