@@ -72,11 +72,11 @@ Asegúrate de tener instalado lo siguiente:
 * [React](https://reactjs.org/)
 * [Menciona otras librerías o frameworks principales que uses (ej: Redux, Context API, Chart.js, una librería de UI como Material UI, etc.)]
 
-## [Contribución (Opcional)]
+## [Contribución]
 
 [Si estás abierto a contribuciones, explica cómo la gente puede contribuir a tu proyecto. Por ejemplo, cómo reportar bugs, sugerir nuevas características, o enviar pull requests.]
 
-## [Licencia (Opcional)]
+## [Licencia]
 
 [Indica la licencia bajo la cual se distribuye tu proyecto, por ejemplo, Licencia MIT. Puedes añadir una línea como: "Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) para detalles."]
 
