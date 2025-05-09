@@ -7,6 +7,7 @@ import CompanySearch from "./components/CompanySearch";
 import ProjectionChart from "./components/ProjectionChart";
 import { CompanyFinancials } from "./models/CompanyFinancials";
 import { fetchCompanyFinancials } from "./services/financialApi"; // Import the simulated API call
+import RatiosAndScenarios from "./components/RatiosAndScenarios";
 
 const DcfCalculatorPage: React.FC = () => {
   const [companyFinancials, setCompanyFinancials] =
@@ -97,9 +98,7 @@ const DcfCalculatorPage: React.FC = () => {
     ]);
 
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-8 text-center">DCF Calculator</h1>
-
+    <div className="container mx-auto p-6 flex flex-col gap-8">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <div className="lg:col-span-2">
           <CompanySearch onSearch={handleSearch} loading={loading} />
@@ -157,7 +156,6 @@ const DcfCalculatorPage: React.FC = () => {
           )}
         </div>
 
-        {/* Assumptions Form */}
         <AssumptionsForm
           epsGrowthRate={epsGrowthRate}
           onEpsGrowthRateChange={setEpsGrowthRate}
@@ -183,6 +181,8 @@ const DcfCalculatorPage: React.FC = () => {
           />
         </div>
       </div>
+      {/* TODO: actualizar con la obtencion de epsGrowth */}
+      <RatiosAndScenarios currentEps={epsGrowthRate}></RatiosAndScenarios>
     </div>
   );
 };

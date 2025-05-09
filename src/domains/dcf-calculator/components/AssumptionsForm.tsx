@@ -12,6 +12,7 @@ interface AssumptionsFormProps {
   onDesiredReturnChange: (value: number) => void;
 }
 
+
 const AssumptionsForm: React.FC<AssumptionsFormProps> = ({
   epsGrowthRate,
   onEpsGrowthRateChange,
@@ -21,7 +22,7 @@ const AssumptionsForm: React.FC<AssumptionsFormProps> = ({
   onDesiredReturnChange,
 }) => {
   return (
-    <Card className="w-full">
+    <Card>
       <CardHeader>
         <CardTitle>Assumptions</CardTitle>
       </CardHeader>
