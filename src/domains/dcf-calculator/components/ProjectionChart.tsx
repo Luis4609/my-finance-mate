@@ -1,7 +1,7 @@
 import * as React from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { formatCurrency } from '@/shared/utils/currencyUtils'; // Import currency formatter
+import { formatCurrency } from '@/shared/utils/currencyUtils'; 
 
 interface ProjectionChartProps {
   projectionData: { year: string; projectedPrice: number }[];

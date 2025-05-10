@@ -181,8 +181,11 @@ const DcfCalculatorPage: React.FC = () => {
           />
         </div>
       </div>
-      {/* TODO: actualizar con la obtencion de epsGrowth */}
-      <RatiosAndScenarios currentEps={epsGrowthRate}></RatiosAndScenarios>
+      {companyFinancials && (
+        <RatiosAndScenarios
+          ticker={companyFinancials.ticker}
+        ></RatiosAndScenarios>
+      )}
     </div>
   );
 };

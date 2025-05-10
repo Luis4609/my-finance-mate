@@ -45,15 +45,10 @@ const CompanySearch: React.FC<CompanySearchProps> = ({
           onKeyPress={handleKeyPress}
           placeholder="MSFT"
           disabled={loading}
-          className="text-white"
         />
       </div>
       <div className="flex items-end">
-        <Button
-          onClick={handleSearch}
-          disabled={loading}
-          className="w-full sm:w-aut text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50 disabled:cursor-not-allowed"
-        >
+        <Button onClick={handleSearch} disabled={loading}>
           {loading ? "Searching..." : "Search"}
         </Button>
       </div>

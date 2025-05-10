@@ -7,34 +7,32 @@ import UpcomingEventsSection from "./components/UpComingEventsSection";
 import { UpcomingEvent } from "./models/UpcomingEvent";
 
 interface DashboardProps {
-  patrimonio?: string;
-  investmentAccounts?: string;
-  cashAccounts?: string;
-  dayVariation?: string;
+  patrimonio?: number;
+  investmentAccounts?: number;
+  cashAccounts?: number;
+  dayVariation?: number;
   investedPercentage?: number;
   liquidityPercentage?: number;
   upcomingEvents?: UpcomingEvent[];
 }
 
-//TODO: receive data from parent component
-
 /**
  * DashboardComponent is a React functional component that displays various financial metrics
  * and upcoming events in a dashboard format.
  *
- * @param {string} patrimonio - The total wealth or assets.
- * @param {string} investmentAccounts - The total value of investment accounts.
- * @param {string} cashAccounts - The total value of cash accounts.
- * @param {string} dayVariation - The daily variation in value.
+ * @param {number} patrimonio - The total wealth or assets.
+ * @param {number} investmentAccounts - The total value of investment accounts.
+ * @param {number} cashAccounts - The total value of cash accounts.
+ * @param {number} dayVariation - The daily variation in value.
  * @param {number} investedPercentage - The percentage of invested assets.
  * @param {number} liquidityPercentage - The percentage of liquid assets.
  * @param {UpcomingEvent[]} upcomingEvents - An array of upcoming events.
  */
 const DashboardComponent: React.FC<DashboardProps> = ({
-  patrimonio = "0 €",
-  investmentAccounts = "0 €",
-  cashAccounts = "0 €",
-  dayVariation = "0 €",
+  patrimonio,
+  investmentAccounts,
+  cashAccounts,
+  dayVariation,
   investedPercentage = 100,
   liquidityPercentage = 0,
   upcomingEvents = [],
@@ -44,24 +42,24 @@ const DashboardComponent: React.FC<DashboardProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <DashboardCard
           title="Patrimonio"
-          value={patrimonio}
+          value={patrimonio ?? 0}
           icon={DollarSign}
         />
         <DashboardCard
           title="Investment accounts"
-          value={investmentAccounts}
+          value={investmentAccounts ?? 0}
           icon={TrendingUp}
         />
         <DashboardCard
           title="Cash accounts"
-          value={cashAccounts}
+          value={cashAccounts ?? 0}
           icon={Banknote}
         />
       </div>
 
       {/* Middle section: Day Variation and Liquidity */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <DashboardCard title="Day variation" value={dayVariation} />
+        <DashboardCard title="Day variation" value={dayVariation ?? 0} />
         <LiquiditySection
           investedPercentage={investedPercentage}
           liquidityPercentage={liquidityPercentage}

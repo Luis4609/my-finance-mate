@@ -1,8 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { formatCurrency } from "@/shared/utils/currencyUtils";
 
 interface DashboardCardProps {
   title: string;
-  value: string;
+  value: number | null;
   icon?: React.ElementType;
 }
 
@@ -10,7 +11,7 @@ interface DashboardCardProps {
  * Reusable card component for displaying key metrics.
  * @param {DashboardCardProps} props - Component props.
  * @param {string} props.title - The title of the card.
- * @param {string} props.value - The main value to display in the card.
+ * @param {number} props.value - The main value to display in the card.
  * @param {React.ElementType} [props.icon] - Optional icon component to display in the header.
  */
 const DashboardCard: React.FC<DashboardCardProps> = ({
@@ -25,7 +26,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
         {Icon && <Icon className="h-4 w-4 text-muted-foreground" />}
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold">{value}</div>
+        <div className="text-2xl font-bold">{formatCurrency(value ?? 0)}</div>
       </CardContent>
     </Card>
   );
