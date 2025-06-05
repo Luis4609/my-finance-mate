@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AccountsPage from "./domains/accounts/AccountsPage";
 import DashboardPage from "./domains/dashboard/DashboardPage";
 import DcfCalculatorPage from "./domains/dcf-calculator/DcfCalculatorPage";
+import BudgetPage from "./domains/budgeting/BudgetPage"; // Import BudgetPage
 import Layout from "./shared/components/layout";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             }
           />
           <Route path="/dcf-calculator" element={<DcfCalculatorPage />} />
+          <Route path="/budgeting" element={<BudgetPage />} /> {/* Add BudgetPage route */}
           <Route path="/" element={<DashboardPage accounts={accounts} />} />
         </Routes>
       </Layout>

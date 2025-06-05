@@ -8,6 +8,7 @@ Una aplicación para **organizar y visualizar todas tus finanzas en un solo luga
 * **Vista Centralizada de Cuentas:** Organiza y consulta todas tus cuentas financieras (bancarias, tarjetas, etc.) en un único panel.
 * **Detalle de Inversiones:** Explora tus inversiones con información detallada sobre cada activo que posees.
 * **Calculadora DCF (Discounted Cash Flow):** Una herramienta para valorar acciones basándose en el análisis de flujos de caja descontados.
+* **Sistema Integral de Presupuestos y Seguimiento de Gastos:** Crea presupuestos personalizados, registra tus transacciones (ingresos y gastos), categorízalos y visualiza tu progreso financiero con gráficos e informes detallados.
 * **[Añadir otras características]:** Si tu proyecto tiene más funcionalidades (ej: registro de gastos, presupuestos, gráficos), añádelas aquí.
 
 ## Instalación
@@ -66,6 +67,8 @@ Asegúrate de tener instalado lo siguiente:
 ## Uso
 
 [Describe brevemente cómo empezar a usar la aplicación una vez que está corriendo. Por ejemplo: "Una vez que la aplicación se carga, puedes empezar añadiendo tus cuentas desde la sección 'Cuentas'...", etc.]
+
+Para gestionar tus finanzas de forma más detallada, navega a la sección 'Budgeting' (Presupuestos). Aquí podrás definir tus categorías de ingresos y gastos, crear presupuestos mensuales o personalizados, registrar todas tus transacciones y ver informes visuales de tus hábitos de gasto y el progreso de tus presupuestos.
 
 ## Tecnologías Utilizadas
 

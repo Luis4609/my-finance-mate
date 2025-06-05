@@ -47,6 +47,11 @@ const data = {
       icon: IconListDetails,
     },
     {
+      title: "Budgeting", // Added Budgeting link
+      url: "/budgeting",
+      icon: IconChartBar, // Using an existing available icon
+    },
+    {
       title: "DCF Calculator",
       url: "/dcf-calculator",
       icon: IconChartBar,
