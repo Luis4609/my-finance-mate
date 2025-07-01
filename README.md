@@ -9,6 +9,7 @@ Una aplicación para **organizar y visualizar todas tus finanzas en un solo luga
 * **Detalle de Inversiones:** Explora tus inversiones con información detallada sobre cada activo que posees.
 * **Calculadora DCF (Discounted Cash Flow):** Una herramienta para valorar acciones basándose en el análisis de flujos de caja descontados.
 * **Sistema Integral de Presupuestos y Seguimiento de Gastos:** Crea presupuestos personalizados, registra tus transacciones (ingresos y gastos), categorízalos y visualiza tu progreso financiero con gráficos e informes detallados.
+* **Establecimiento y Seguimiento de Metas Financieras:** Define tus objetivos financieros (ahorros, inversiones, etc.), establece montos y fechas límite, vincula cuentas relevantes y visualiza tu progreso para mantenerte motivado.
 * **[Añadir otras características]:** Si tu proyecto tiene más funcionalidades (ej: registro de gastos, presupuestos, gráficos), añádelas aquí.
 
 ## Instalación
@@ -69,6 +70,8 @@ Asegúrate de tener instalado lo siguiente:
 [Describe brevemente cómo empezar a usar la aplicación una vez que está corriendo. Por ejemplo: "Una vez que la aplicación se carga, puedes empezar añadiendo tus cuentas desde la sección 'Cuentas'...", etc.]
 
 Para gestionar tus finanzas de forma más detallada, navega a la sección 'Budgeting' (Presupuestos). Aquí podrás definir tus categorías de ingresos y gastos, crear presupuestos mensuales o personalizados, registrar todas tus transacciones y ver informes visuales de tus hábitos de gasto y el progreso de tus presupuestos.
+
+Además, puedes establecer y seguir tus metas financieras desde la sección 'Goals' (Metas). Define objetivos como ahorrar para unas vacaciones, crear un fondo de emergencia o alcanzar un hito de inversión. Vincula tus cuentas para un seguimiento automático del progreso o actualízalo manually, y observa cómo te acercas a tus metas.
 
 ## Tecnologías Utilizadas
 

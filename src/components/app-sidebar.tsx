@@ -11,7 +11,8 @@ import {
   IconListDetails,
   IconReport,
   IconSearch,
-  IconSettings
+  IconSettings,
+  IconTargetArrow, // Added for Goals
 } from "@tabler/icons-react";
 import * as React from "react";
 
@@ -50,6 +51,11 @@ const data = {
       title: "Budgeting", // Added Budgeting link
       url: "/budgeting",
       icon: IconChartBar, // Using an existing available icon
+    },
+    {
+      title: "Goals", // Added Goals link
+      url: "/goals",
+      icon: IconTargetArrow,
     },
     {
       title: "DCF Calculator",
