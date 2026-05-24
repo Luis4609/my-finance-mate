@@ -5,6 +5,7 @@ import {
   IconListDetails,
   IconSettings,
   IconHelp,
+  IconReceipt,
 } from "@tabler/icons-react";
 import * as React from "react";
 
@@ -37,6 +38,11 @@ const data = {
       title: "Accounts",
       url: "/accounts",
       icon: IconListDetails,
+    },
+    {
+      title: "Transactions",
+      url: "/transactions",
+      icon: IconReceipt,
     },
     {
       title: "DCF Calculator",

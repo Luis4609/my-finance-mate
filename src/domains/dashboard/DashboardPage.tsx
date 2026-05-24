@@ -1,22 +1,24 @@
 import { Account } from "@/shared/models/Account";
+import { Transaction } from "@/shared/models/Transaction";
 import React from "react";
 
 import DashboardComponent from "./DashboardComponent";
 
 interface DashboardPageProps {
   accounts: Account[];
+  transactions: Transaction[];
 }
 
-const DashboardPage: React.FC<DashboardPageProps> = ({ accounts }) => {
+const DashboardPage: React.FC<DashboardPageProps> = ({ accounts, transactions }) => {
   // Calcular los valores necesarios a partir de las cuentas
   const patrimonio = accounts.reduce((total, account) => total + account.balance, 0);
 
   const investmentAccounts = accounts
-    .filter((account) => account.type.name === "INVESTMENT")
+    .filter((account) => account.type?.name === "INVESTMENT")
     .reduce((total, account) => total + account.balance, 0);
 
   const cashAccounts = accounts
-    .filter((account) => account.type.name === "CASH")
+    .filter((account) => account.type?.name === "CASH")
     .reduce((total, account) => total + account.balance, 0);
 
   const dayVariation = 0; // Puedes calcular esto si tienes los datos necesarios
@@ -30,6 +32,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ accounts }) => {
     <>
       <DashboardComponent
         accounts={accounts}
+        transactions={transactions}
         patrimonio={patrimonio}
         investmentAccounts={investmentAccounts}
         cashAccounts={cashAccounts}
