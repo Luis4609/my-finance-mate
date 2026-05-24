@@ -6,9 +6,6 @@ import React from 'react';
 import LiquiditySection from '../LiquiditySection'; // Adjust the import path as needed
 
 // Mock shadcn Card and Progress components, and lucide-react Info icon
-// NOTE: If you are getting an error like "Expected ">" but found "data"",
-// this likely indicates a configuration issue in your Vitest/Vite/esbuild setup
-// related to parsing JSX in test files or mocks. The syntax below is standard.
 vi.mock('@/components/ui/card', () => ({
   Card: ({ children }: { children: React.ReactNode }) => <div data-testid="card">{children}</div>,
   CardHeader: ({ children }: { children: React.ReactNode }) => <div data-testid="card-header">{children}</div>,
@@ -22,7 +19,6 @@ vi.mock('@/components/ui/progress', () => ({
 
 vi.mock('lucide-react', () => ({
   Info: () => <svg data-testid="InfoIcon" />,
-  // Add other icons if used directly in this component
 }));
 
 

@@ -1,40 +1,43 @@
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Account } from "@/shared/models/Account";
-import React, { useState } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { AVAILABLE_ACCOUNT_TYPES } from "@/shared/constants/accountTypes";
 
 interface AddAccountFormProps {
-  onAddAccount: (
-    account: Omit<Account, "id" | "lastUpdated" | "color" | "isActive">
-  ) => void;
+  onAddAccount: (account: {
+    name: string;
+    balance: number;
+    typeId: string;
+  }) => void;
 }
 
 const AddAccountForm: React.FC<AddAccountFormProps> = ({ onAddAccount }) => {
   const [name, setName] = useState("");
   const [balance, setBalance] = useState("");
-
-  //TODO: Add a dropdown for account types
-  // For now, we will use a text input for account type
-  const [type, setType] = useState("");
-
+  const [typeId, setTypeId] = useState(AVAILABLE_ACCOUNT_TYPES[0].id);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || balance === "") return;
+    if (!name || balance === "" || !typeId) return;
 
-    const newAccount = {
+    onAddAccount({
       name,
       balance: parseFloat(balance),
-      lastUpdated: new Date().toISOString(),
-      type,
-    };
+      typeId,
+    });
 
-    onAddAccount(newAccount);
     setName("");
     setBalance("");
-    setType(""); 
+    setTypeId(AVAILABLE_ACCOUNT_TYPES[0].id);
   };
 
   return (
@@ -51,6 +54,7 @@ const AddAccountForm: React.FC<AddAccountFormProps> = ({ onAddAccount }) => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              placeholder="La Caixa, Trade Republic..."
               required
             />
           </div>
@@ -62,20 +66,26 @@ const AddAccountForm: React.FC<AddAccountFormProps> = ({ onAddAccount }) => {
               value={balance}
               onChange={(e) => setBalance(e.target.value)}
               step="0.01"
+              placeholder="1000.00"
               required
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="balance">Account type</Label>
-            <Input
-              id="accountType"
-              type="text"
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-              required
-            />
+            <Label htmlFor="accountType">Account Type</Label>
+            <Select value={typeId} onValueChange={(val) => setTypeId(val)}>
+              <SelectTrigger id="accountType" className="w-full">
+                <SelectValue placeholder="Select type" />
+              </SelectTrigger>
+              <SelectContent>
+                {AVAILABLE_ACCOUNT_TYPES.map((type) => (
+                  <SelectItem key={type.id} value={type.id} className="capitalize">
+                    {type.name.toLowerCase().replace('_', ' ')}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full mt-2">
             Add Account
           </Button>
         </form>

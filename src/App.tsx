@@ -22,7 +22,7 @@ function App() {
               <AccountsPage
                 accounts={accounts}
                 onAddAccount={addAccount}
-                onUpdateBalance={updateAccount}
+                onUpdateBalance={(id, newBalance) => updateAccount(id, { balance: newBalance })}
                 onDeleteAccount={deleteAccount}
               />
             }

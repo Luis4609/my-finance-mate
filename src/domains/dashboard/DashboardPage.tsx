@@ -29,6 +29,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ accounts }) => {
   return (
     <>
       <DashboardComponent
+        accounts={accounts}
         patrimonio={patrimonio}
         investmentAccounts={investmentAccounts}
         cashAccounts={cashAccounts}

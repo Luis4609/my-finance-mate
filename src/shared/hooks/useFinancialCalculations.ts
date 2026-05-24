@@ -48,13 +48,7 @@ export const useFinancialCalculations = ({
         const coreRatios = await fetchCoreRatiosData(ticker);
         setRatios(coreRatios);
 
-        if (financials && financials.epsTTM > 0 && epsGrowth !== "") {
-          const calculatedScenarios = calculateScenarios({
-            baseEps: financials.epsTTM,
-            growthRate: Number(epsGrowth),
-          });
-          setScenarios(calculatedScenarios);
-        } else if (financials && financials.epsTTM <= 0) {
+        if (financials && financials.epsTTM <= 0) {
           setError(
             "EPS TTM is zero or negative, cannot calculate scenarios with current EPS growth."
           );

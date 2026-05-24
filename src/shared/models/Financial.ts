@@ -8,7 +8,7 @@ export interface CompanyFinancials {
     peRatioTTM: number; // Calculated from price and epsTTM
     marketCap: number;
     currentDcfValue: number | null; // dcf from FMP profile can be null
-    currectPriceDifferenceToDcfValue: number | null; // dcfDiff from FMP profile can be null
+    currentPriceDifferenceToDcfValue: number | null; // dcfDiff from FMP profile can be null
   }
   
   export interface RatiosData {

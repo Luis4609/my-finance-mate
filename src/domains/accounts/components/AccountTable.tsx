@@ -1,6 +1,6 @@
 import React from "react";
 import { Account } from '@/shared/models/Account';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"; // Assuming shadcn Card is available
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"; 
 import {
   Table,
   TableBody,
@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button"; 
 import { formatCurrency } from '@/shared/utils/currencyUtils';
+import { Badge } from "@/components/ui/badge";
 
 interface AccountTableProps {
   accounts: Account[];
@@ -61,7 +62,11 @@ const AccountTable: React.FC<AccountTableProps> = ({
                 <TableRow key={account.id}>
                   <TableCell className="font-medium">{account.name}</TableCell>
                   <TableCell>{formatCurrency(account.balance)}</TableCell>
-                  <TableCell>{String(account.type)}</TableCell>
+                  <TableCell>
+                    <Badge variant="secondary" className="capitalize">
+                      {account.type?.name ? account.type.name.toLowerCase().replace('_', ' ') : 'other'}
+                    </Badge>
+                  </TableCell>
                   <TableCell>{account.lastUpdated}</TableCell>
                   <TableCell className="text-right">
                     <Button

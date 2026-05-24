@@ -5,8 +5,8 @@ import AssumptionsForm from "./components/AssumptionsForm";
 import CalculationResults from "./components/CalculationResults";
 import CompanySearch from "./components/CompanySearch";
 import ProjectionChart from "./components/ProjectionChart";
-import { CompanyFinancials } from "./models/CompanyFinancials";
-import { fetchCompanyFinancials } from "./services/financialApi"; // Import the simulated API call
+import { CompanyFinancials } from "@/shared/models/Financial";
+import { fetchCompanyFinancials } from "./services/companyService"; // Import the unified API call
 import RatiosAndScenarios from "./components/RatiosAndScenarios";
 
 const DcfCalculatorPage: React.FC = () => {
@@ -142,7 +142,7 @@ const DcfCalculatorPage: React.FC = () => {
                     }`}
                   >
                     {formatCurrency(
-                      companyFinancials.currectPriceDifferenceToDcfValue ?? 0
+                      companyFinancials.currentPriceDifferenceToDcfValue ?? 0
                     )}
                   </p>
                 </div>

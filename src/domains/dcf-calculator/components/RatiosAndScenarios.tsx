@@ -106,7 +106,7 @@ const RatiosAndScenarios: React.FC<RatiosAndScenariosProps> = ({
               Enter EPS Growth (%) to calculate future scenarios.
             </p>
           )}
-        {!loading && !error && ticker && epsTTM <= 0 && (
+        {!loading && !error && ticker && epsTTM !== undefined && epsTTM <= 0 && (
           <p className="text-yellow-500 text-sm text-center">
             Current EPS (TTM) is ${epsTTM?.toFixed(2)}. Scenarios cannot be
             calculated with non-positive EPS.
